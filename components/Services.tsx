@@ -2,6 +2,7 @@
 
 import {
   Wrench, Settings, Wind, Zap, Car, Droplets, AlertTriangle, RotateCcw,
+  Battery, Lightbulb, Fuel, Thermometer, ShieldCheck, Gauge,
 } from "lucide-react";
 
 const services = [
@@ -13,6 +14,12 @@ const services = [
   { icon: Car, title: "Wheel Alignment", desc: "Precision computerized alignment extends tire life and improves handling significantly.", highlight: false },
   { icon: Zap, title: "Computer Diagnostics", desc: "Advanced OBD scanning to pinpoint issues fast — no guesswork, no unnecessary parts.", highlight: true },
   { icon: Wrench, title: "Suspension & Exhaust", desc: "Shocks, struts, mufflers, and full exhaust system service for a smooth, quiet ride.", highlight: false },
+  { icon: Battery, title: "Battery Service", desc: "Battery testing, replacement, and charging system inspection to keep you on the road.", highlight: false },
+  { icon: Thermometer, title: "Cooling System", desc: "Coolant flush, radiator repair, and thermostat replacement to prevent overheating.", highlight: false },
+  { icon: Fuel, title: "Fuel Injection", desc: "Fuel injection cleaning and service to restore performance and improve fuel economy.", highlight: false },
+  { icon: Lightbulb, title: "Electrical Work", desc: "Lighting, wiring, sensors, and electrical system diagnostics for all vehicle makes.", highlight: false },
+  { icon: ShieldCheck, title: "CV Axles & Clutch", desc: "CV axle replacement and clutch repair for front-wheel drive and manual transmission vehicles.", highlight: false },
+  { icon: Gauge, title: "Preventive Maintenance", desc: "Belts, hoses, filters, fluids — everything to keep your car running before problems start.", highlight: false },
 ];
 
 export default function Services() {
@@ -25,7 +32,7 @@ export default function Services() {
             What We <span className="gradient-text">Fix</span>
           </h2>
           <p className="text-[#A1A1AA] text-lg max-w-xl">
-            Full-service auto repair with over four decades of expertise. If your car has a problem, we&apos;ve seen it — and fixed it.
+            Full-service auto repair for foreign and domestic vehicles — with over four decades of expertise. If your car has a problem, we&apos;ve seen it and fixed it.
           </p>
         </div>
 
@@ -37,7 +44,7 @@ export default function Services() {
                 key={svc.title}
                 className={`group relative p-6 rounded-lg border transition-all duration-300 cursor-default ${
                   svc.highlight
-                    ? "bg-[#DC2626]/8 border-[#DC2626]/30 hover:border-[#DC2626]/60 hover:bg-[#DC2626]/12"
+                    ? "bg-[#DC2626]/8 border-[#DC2626]/30 hover:border-[#DC2626]/60"
                     : "bg-[#111111] border-[#252525] hover:border-[#DC2626]/30 hover:bg-[#141414]"
                 }`}
               >
@@ -59,7 +66,7 @@ export default function Services() {
         </div>
 
         <div className="mt-12 flex flex-col sm:flex-row items-start sm:items-center gap-4">
-          <p className="text-[#A1A1AA]">Not sure what your car needs? We&apos;ll tell you honestly.</p>
+          <p className="text-[#A1A1AA]">Not sure what your car needs? We&apos;ll diagnose it honestly.</p>
           <a href="tel:3034994300" className="text-[#EF4444] font-semibold hover:text-white transition-colors flex items-center gap-1">
             Call for a free estimate →
           </a>

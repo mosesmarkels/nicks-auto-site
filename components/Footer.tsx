@@ -1,4 +1,4 @@
-import { Phone, MapPin, Clock } from "lucide-react";
+import { Phone, MapPin, Clock, Mail } from "lucide-react";
 
 export default function Footer() {
   return (
@@ -18,7 +18,7 @@ export default function Footer() {
             </div>
             <p className="text-sm text-[#A1A1AA] leading-relaxed">
               Family owned. ASE certified. Honest service since 1977.
-              Boulder&apos;s trusted name in auto repair.
+              Serving Boulder, Louisville &amp; Lafayette, CO.
             </p>
           </div>
 
@@ -54,12 +54,13 @@ export default function Footer() {
               Contact
             </h4>
             <div className="space-y-3 text-sm text-[#A1A1AA]">
-              <a
-                href="tel:3034994300"
-                className="flex items-center gap-2 hover:text-white transition-colors"
-              >
+              <a href="tel:3034994300" className="flex items-center gap-2 hover:text-white transition-colors">
                 <Phone className="w-4 h-4 text-[#DC2626]" />
                 (303) 499-4300
+              </a>
+              <a href="mailto:info@nicksautorepairco.com" className="flex items-center gap-2 hover:text-white transition-colors">
+                <Mail className="w-4 h-4 text-[#DC2626]" />
+                info@nicksautorepairco.com
               </a>
               <div className="flex items-start gap-2">
                 <MapPin className="w-4 h-4 text-[#DC2626] mt-0.5 shrink-0" />

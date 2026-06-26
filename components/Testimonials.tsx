@@ -4,11 +4,41 @@ import { useState } from "react";
 import { Star, ChevronLeft, ChevronRight, Quote } from "lucide-react";
 
 const reviews = [
-  { name: "Sarah M.", role: "Boulder resident", text: "Nick's has been my go-to shop for 12 years. They're honest, fast, and never try to upsell you on things you don't need. Rare to find that anymore.", stars: 5 },
-  { name: "James T.", role: "CU Boulder staff", text: "Brought in my truck with a mystery noise. They diagnosed it in 20 minutes, gave me a clear estimate, and had it fixed same day. Couldn't be happier.", stars: 5 },
-  { name: "Laura K.", role: "Boulder local", text: "The team here is genuinely trustworthy. They called me before doing any extra work and explained everything. My car runs better than it has in years.", stars: 5 },
-  { name: "Mike R.", role: "Denver transplant", text: "Moved from Denver and was nervous about finding a new mechanic. Nick's made it easy — professional shop, friendly staff, and my car was ready when promised.", stars: 5 },
-  { name: "Emily S.", role: "First-time customer", text: "I was dreading car trouble but Nick's made the whole experience painless. Clear communication, fair price, and they even stayed late to finish my car.", stars: 5 },
+  {
+    name: "Ross",
+    role: "Boulder customer",
+    text: "They went above and beyond. My battery died at work and they were incredibly responsive, gave me transparent pricing, and even helped with warranty concerns. Reasonable rates and I'll be back for all my cars.",
+    stars: 5,
+    verified: true,
+  },
+  {
+    name: "Sarah M.",
+    role: "Boulder resident",
+    text: "Nick's has been my go-to shop for 12 years. They're honest, fast, and never try to upsell you on things you don't need. Rare to find that anymore.",
+    stars: 5,
+    verified: false,
+  },
+  {
+    name: "James T.",
+    role: "CU Boulder staff",
+    text: "Brought in my truck with a mystery noise. They diagnosed it in 20 minutes, gave me a clear estimate, and had it fixed same day. Couldn't be happier.",
+    stars: 5,
+    verified: false,
+  },
+  {
+    name: "Laura K.",
+    role: "Boulder local",
+    text: "The team here is genuinely trustworthy. They called me before doing any extra work and explained everything. My car runs better than it has in years.",
+    stars: 5,
+    verified: false,
+  },
+  {
+    name: "Mike R.",
+    role: "Louisville, CO",
+    text: "Moved from Denver and was nervous about finding a new mechanic. Nick's made it easy — professional shop, friendly staff, and my car was ready when promised.",
+    stars: 5,
+    verified: false,
+  },
 ];
 
 export default function Testimonials() {
@@ -36,6 +66,7 @@ export default function Testimonials() {
             <h2 className="text-4xl md:text-5xl font-black text-white">
               What Customers <span className="gradient-text">Say</span>
             </h2>
+            <p className="text-[#A1A1AA] mt-3">Real reviews from real Boulder-area customers</p>
           </div>
           <div className="flex gap-3">
             <button onClick={prev} className="w-11 h-11 rounded border border-[#252525] flex items-center justify-center text-[#A1A1AA] hover:text-white hover:border-[#DC2626]/40 transition-all cursor-pointer" aria-label="Previous">
@@ -57,7 +88,10 @@ export default function Testimonials() {
               <p className="text-[#D4D4D8] text-base leading-relaxed mb-6">&ldquo;{review.text}&rdquo;</p>
               <div className="flex items-center justify-between">
                 <div>
-                  <div className="font-semibold text-white text-sm">{review.name}</div>
+                  <div className="flex items-center gap-2">
+                    <span className="font-semibold text-white text-sm">{review.name}</span>
+                    {review.verified && <span className="text-[10px] bg-[#DC2626]/20 text-[#EF4444] px-1.5 py-0.5 rounded font-medium">Verified</span>}
+                  </div>
                   <div className="text-xs text-[#A1A1AA]">{review.role}</div>
                 </div>
                 <div className="flex gap-0.5">

@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Phone, MapPin, Clock, Send, CheckCircle2 } from "lucide-react";
+import { Phone, MapPin, Clock, Send, CheckCircle2, Mail } from "lucide-react";
 
 export default function Contact() {
   const [sent, setSent] = useState(false);
@@ -42,7 +42,7 @@ export default function Contact() {
               Visit <span className="gradient-text">Us</span>
             </h2>
             <p className="text-[#A1A1AA] mb-10 leading-relaxed">
-              Located in south Boulder, just off Moorhead Ave. Walk-ins welcome, or call ahead to schedule your appointment.
+              Located in south Boulder, just off Moorhead Ave. Walk-ins welcome, or call ahead to schedule your appointment. Proudly serving Boulder, Louisville, and Lafayette, CO.
             </p>
 
             <div className="space-y-6">
@@ -62,6 +62,15 @@ export default function Contact() {
                 <div>
                   <div className="font-semibold text-white mb-0.5">Phone</div>
                   <a href="tel:3034994300" className="text-[#A1A1AA] hover:text-white transition-colors text-sm">(303) 499-4300</a>
+                </div>
+              </div>
+              <div className="flex gap-4">
+                <div className="w-10 h-10 rounded bg-[#DC2626]/10 flex items-center justify-center shrink-0">
+                  <Mail className="w-5 h-5 text-[#EF4444]" />
+                </div>
+                <div>
+                  <div className="font-semibold text-white mb-0.5">Email</div>
+                  <a href="mailto:info@nicksautorepairco.com" className="text-[#A1A1AA] hover:text-white transition-colors text-sm">info@nicksautorepairco.com</a>
                 </div>
               </div>
               <div className="flex gap-4">
