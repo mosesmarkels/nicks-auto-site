@@ -20,34 +20,33 @@ export default function Hero() {
 
   return (
     <section style={{ position: "relative", minHeight: "100vh", display: "flex", alignItems: "center", overflow: "hidden" }}>
-      {/* 3D canvas background — desktop only */}
+
+      {/* Real shop photo — always shown as base layer */}
+      <div style={{ position: "absolute", inset: 0, zIndex: 0 }}>
+        <img
+          src={img("/photos/building.jpg")}
+          alt="Nick's Auto Repair — Boulder, CO"
+          style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 60%" }}
+        />
+      </div>
+
+      {/* Dark overlay over photo */}
+      <div style={{ position: "absolute", inset: 0, zIndex: 1, background: "rgba(8,8,8,0.78)", pointerEvents: "none" }} />
+
+      {/* 3D canvas on top of photo — desktop only */}
       {isDesktop && (
-        <div style={{ position: "absolute", inset: 0, zIndex: 0 }}>
+        <div style={{ position: "absolute", inset: 0, zIndex: 2 }}>
           <Scene3D />
         </div>
       )}
-      {/* Mobile background — real shop photo */}
-      <div className="sm:hidden" style={{ position: "absolute", inset: 0, zIndex: 0 }}>
-        <img src={img("/photos/building.jpg")} alt="Nick's Auto Repair" className="w-full h-full object-cover opacity-30" />
-        <div style={{ position: "absolute", inset: 0, background: "linear-gradient(180deg, rgba(8,8,8,0.6) 0%, rgba(8,8,8,0.95) 100%)" }} />
-      </div>
 
-      {/* Radial gradient overlay */}
-      <div
-        style={{
-          position: "absolute", inset: 0, zIndex: 1,
-          background:
-            "radial-gradient(ellipse 80% 60% at 50% 50%, rgba(220,38,38,0.08) 0%, transparent 70%), radial-gradient(ellipse 100% 100% at 50% 100%, rgba(8,8,8,0.95) 0%, rgba(8,8,8,0.4) 60%)",
-          pointerEvents: "none",
-        }}
-      />
-      {/* Left edge gradient */}
-      <div style={{ position: "absolute", top: 0, bottom: 0, left: 0, width: "33%", zIndex: 1, background: "linear-gradient(90deg, rgba(8,8,8,1) 0%, transparent 100%)", pointerEvents: "none" }} />
-      {/* Right edge gradient */}
-      <div style={{ position: "absolute", top: 0, bottom: 0, right: 0, width: "33%", zIndex: 1, background: "linear-gradient(270deg, rgba(8,8,8,1) 0%, transparent 100%)", pointerEvents: "none" }} />
+      {/* Gradient overlays */}
+      <div style={{ position: "absolute", inset: 0, zIndex: 3, background: "radial-gradient(ellipse 80% 60% at 50% 50%, rgba(220,38,38,0.07) 0%, transparent 70%), radial-gradient(ellipse 100% 100% at 50% 100%, rgba(8,8,8,0.95) 0%, rgba(8,8,8,0.3) 60%)", pointerEvents: "none" }} />
+      <div style={{ position: "absolute", top: 0, bottom: 0, left: 0, width: "33%", zIndex: 3, background: "linear-gradient(90deg, rgba(8,8,8,0.9) 0%, transparent 100%)", pointerEvents: "none" }} />
+      <div style={{ position: "absolute", top: 0, bottom: 0, right: 0, width: "33%", zIndex: 3, background: "linear-gradient(270deg, rgba(8,8,8,0.9) 0%, transparent 100%)", pointerEvents: "none" }} />
 
       {/* Content */}
-      <div className="relative z-10 max-w-7xl mx-auto px-6 pt-24 pb-16 w-full">
+      <div className="relative max-w-7xl mx-auto px-6 pt-24 pb-16 w-full" style={{ zIndex: 10 }}>
         <div className="max-w-3xl">
           {/* Badge */}
           <div className="inline-flex items-center gap-2 bg-[#DC2626]/10 border border-[#DC2626]/30 text-[#EF4444] text-[11px] font-semibold uppercase tracking-wide px-3 py-1.5 rounded-full mb-6 whitespace-nowrap">
@@ -88,7 +87,7 @@ export default function Hero() {
             </a>
           </div>
 
-          {/* Trust row — 2-col grid on mobile */}
+          {/* Trust row */}
           <div className="grid grid-cols-2 sm:flex sm:flex-wrap sm:items-center gap-3 sm:gap-6 pb-16 sm:pb-0">
             <div className="flex items-center gap-2">
               <div className="flex">
@@ -115,24 +114,17 @@ export default function Hero() {
       </div>
 
       {/* Bottom fade */}
-      <div
-        style={{
-          position: "absolute", bottom: 0, left: 0, right: 0, height: "8rem", zIndex: 10,
-          background: "linear-gradient(to bottom, transparent, rgba(8,8,8,1))",
-          pointerEvents: "none",
-        }}
-      />
+      <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: "8rem", zIndex: 10, background: "linear-gradient(to bottom, transparent, rgba(8,8,8,1))", pointerEvents: "none" }} />
 
-      {/* Scroll indicator — hidden on mobile */}
+      {/* Scroll indicator — desktop only */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.2, duration: 0.5 }}
-        className="hidden sm:flex absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex-col items-center gap-2"
+        className="hidden sm:flex absolute bottom-8 left-1/2 -translate-x-1/2 flex-col items-center gap-2"
+        style={{ zIndex: 10 }}
       >
-        <span className="text-[10px] text-[#52525B] uppercase tracking-widest">
-          Scroll
-        </span>
+        <span className="text-[10px] text-[#52525B] uppercase tracking-widest">Scroll</span>
         <motion.div
           animate={{ y: [0, 8, 0] }}
           transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}

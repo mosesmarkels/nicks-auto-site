@@ -1,5 +1,6 @@
 "use client";
 
+import { img } from "@/lib/img";
 import {
   Wrench, Settings, Wind, Zap, Car, Droplets, AlertTriangle, RotateCcw,
   Battery, Lightbulb, Fuel, Thermometer, ShieldCheck, Gauge,
@@ -24,8 +25,12 @@ const services = [
 
 export default function Services() {
   return (
-    <section id="services" className="section-pad">
-      <div className="max-w-7xl mx-auto px-6">
+    <section id="services" className="section-pad relative overflow-hidden">
+      {/* Faint shop photo in background */}
+      <div className="absolute inset-0 z-0 pointer-events-none">
+        <img src={img("/photos/shop2.jpg")} alt="" className="w-full h-full object-cover opacity-[0.04]" />
+      </div>
+      <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div className="mb-16">
           <span className="divider-red mb-5" />
           <h2 className="text-4xl md:text-5xl font-black text-white mb-4">
@@ -65,7 +70,23 @@ export default function Services() {
           })}
         </div>
 
-        <div className="mt-12 flex flex-col sm:flex-row items-start sm:items-center gap-4">
+        {/* Photo strip */}
+        <div className="mt-14 grid grid-cols-2 md:grid-cols-4 gap-3">
+          {[
+            { src: "/photos/shop1.jpg", label: "Honest Diagnostics" },
+            { src: "/photos/car.jpg", label: "All Makes & Models" },
+            { src: "/photos/cars-lot.jpg", label: "Foreign & Domestic" },
+            { src: "/photos/welcome.jpg", label: "Happy Customers" },
+          ].map((p) => (
+            <div key={p.src} className="relative h-32 rounded-lg overflow-hidden border border-[#252525]">
+              <img src={img(p.src)} alt={p.label} className="w-full h-full object-cover" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
+              <span className="absolute bottom-2 left-3 text-[11px] text-white font-medium">{p.label}</span>
+            </div>
+          ))}
+        </div>
+
+        <div className="mt-8 flex flex-col sm:flex-row items-start sm:items-center gap-4">
           <p className="text-[#A1A1AA]">Not sure what your car needs? We&apos;ll diagnose it honestly.</p>
           <a href="tel:3034994300" className="text-[#EF4444] font-semibold hover:text-white transition-colors flex items-center gap-1">
             Call for a free estimate →

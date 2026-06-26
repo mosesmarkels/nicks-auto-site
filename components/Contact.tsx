@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { Phone, MapPin, Clock, Send, CheckCircle2, Mail } from "lucide-react";
+import { img } from "@/lib/img";
 
 export default function Contact() {
   const [sent, setSent] = useState(false);
@@ -21,14 +22,16 @@ export default function Contact() {
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         {/* Top CTA bar */}
         <div
-          className="flex flex-col md:flex-row items-center justify-between gap-6 p-8 rounded-xl bg-[#DC2626] mb-16"
+          className="relative flex flex-col md:flex-row items-center justify-between gap-6 p-8 rounded-xl overflow-hidden mb-16"
           style={{ boxShadow: "0 0 60px rgba(220,38,38,0.3)" }}
         >
-          <div>
+          <img src={img("/photos/building.jpg")} alt="" className="absolute inset-0 w-full h-full object-cover object-center opacity-20" />
+          <div className="absolute inset-0 bg-[#DC2626]/90" />
+          <div className="relative z-10">
             <h2 className="text-2xl md:text-3xl font-black text-white mb-1">Ready to get your car fixed?</h2>
             <p className="text-white/80">Call us now or drop by — no appointment needed.</p>
           </div>
-          <a href="tel:3034994300" className="flex items-center gap-3 bg-white text-[#DC2626] font-bold px-8 py-4 rounded text-lg hover:bg-gray-100 transition-colors shrink-0">
+          <a href="tel:3034994300" className="relative z-10 flex items-center gap-3 bg-white text-[#DC2626] font-bold px-8 py-4 rounded text-lg hover:bg-gray-100 transition-colors shrink-0">
             <Phone className="w-5 h-5" />
             (303) 499-4300
           </a>
