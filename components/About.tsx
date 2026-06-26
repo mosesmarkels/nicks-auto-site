@@ -1,7 +1,7 @@
 "use client";
 
 import { CheckCircle2, Heart, Users, Trophy } from "lucide-react";
-import Image from "next/image";
+import { img } from "@/lib/img";
 
 const pillars = [
   { icon: Heart, title: "Family Owned", desc: "Nick's has been a family business since day one. We treat every customer the way we'd treat our own family." },
@@ -53,26 +53,18 @@ export default function About() {
 
             {/* Photo grid */}
             <div className="grid grid-cols-2 gap-3">
-              <div className="relative h-44 rounded-lg overflow-hidden border border-[#252525]">
-                <Image src="/photos/shop1.jpg" alt="Mechanic explaining repairs to customer" fill className="object-cover" />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-                <span className="absolute bottom-2 left-3 text-xs text-white font-medium">Honest Diagnostics</span>
-              </div>
-              <div className="relative h-44 rounded-lg overflow-hidden border border-[#252525]">
-                <Image src="/photos/shop2.jpg" alt="Team of mechanics inspecting a vehicle" fill className="object-cover" />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-                <span className="absolute bottom-2 left-3 text-xs text-white font-medium">Expert Team</span>
-              </div>
-              <div className="relative h-44 rounded-lg overflow-hidden border border-[#252525]">
-                <Image src="/photos/welcome.jpg" alt="Happy customer" fill className="object-cover" />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-                <span className="absolute bottom-2 left-3 text-xs text-white font-medium">Happy Customers</span>
-              </div>
-              <div className="relative h-44 rounded-lg overflow-hidden border border-[#252525]">
-                <Image src="/photos/shop4.jpg" alt="Precision automotive equipment" fill className="object-cover" />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-                <span className="absolute bottom-2 left-3 text-xs text-white font-medium">Precision Tools</span>
-              </div>
+              {[
+                { src: "/photos/building.jpg", alt: "Nick's Auto Repair shop with Boulder Flatirons", label: "Our Shop" },
+                { src: "/photos/shop1.jpg", alt: "Mechanic explaining repairs to customer", label: "Honest Diagnostics" },
+                { src: "/photos/cars-lot.jpg", alt: "Cars in the lot at Nick's Auto", label: "All Makes & Models" },
+                { src: "/photos/shop2.jpg", alt: "Team of mechanics inspecting a vehicle", label: "Expert Team" },
+              ].map((photo) => (
+                <div key={photo.src} className="relative h-44 rounded-lg overflow-hidden border border-[#252525]">
+                  <img src={img(photo.src)} alt={photo.alt} className="w-full h-full object-cover" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                  <span className="absolute bottom-2 left-3 text-xs text-white font-medium">{photo.label}</span>
+                </div>
+              ))}
             </div>
           </div>
 

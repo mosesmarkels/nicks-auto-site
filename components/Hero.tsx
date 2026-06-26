@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Phone, ArrowRight, Star, Shield, Award } from "lucide-react";
 import dynamic from "next/dynamic";
+import { img } from "@/lib/img";
 
 const Scene3D = dynamic(() => import("./Scene3D"), {
   ssr: false,
@@ -25,8 +26,11 @@ export default function Hero() {
           <Scene3D />
         </div>
       )}
-      {/* Mobile fallback background */}
-      <div className="sm:hidden" style={{ position: "absolute", inset: 0, zIndex: 0, background: "radial-gradient(ellipse 120% 80% at 50% 30%, rgba(220,38,38,0.15) 0%, transparent 60%)" }} />
+      {/* Mobile background — real shop photo */}
+      <div className="sm:hidden" style={{ position: "absolute", inset: 0, zIndex: 0 }}>
+        <img src={img("/photos/building.jpg")} alt="Nick's Auto Repair" className="w-full h-full object-cover opacity-30" />
+        <div style={{ position: "absolute", inset: 0, background: "linear-gradient(180deg, rgba(8,8,8,0.6) 0%, rgba(8,8,8,0.95) 100%)" }} />
+      </div>
 
       {/* Radial gradient overlay */}
       <div

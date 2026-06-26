@@ -5,39 +5,46 @@ import { Star, ChevronLeft, ChevronRight, Quote } from "lucide-react";
 
 const reviews = [
   {
+    name: "Brooke B.",
+    role: "7-year customer",
+    text: "They are the best. I have gone to them for over 7 years now. They have been kind, caring, honest and efficient. I would trust them with any car repair I need. Thank you to Nick, his beautiful wife Nicole and everyone working there.",
+    stars: 5,
+  },
+  {
+    name: "Mike W.",
+    role: "23-year customer",
+    text: "I've been taking my cars to Nick's Auto Repair for nearly 23 years. They have been very honest, professionally competent and pleasant to work with. Dennis and Jennifer have always been very personable and thorough. I highly recommend them.",
+    stars: 5,
+  },
+  {
+    name: "PCH",
+    role: "Drives from Denver",
+    text: "I've had my water pump, radiator, and all four brakes and rotors replaced at Nick's. Every time they've been honest, quick, and professional. I used to live in Boulder and now live in Denver — if anything goes wrong I still come here because I trust them.",
+    stars: 5,
+  },
+  {
     name: "Ross",
     role: "Boulder customer",
     text: "They went above and beyond. My battery died at work and they were incredibly responsive, gave me transparent pricing, and even helped with warranty concerns. Reasonable rates and I'll be back for all my cars.",
     stars: 5,
-    verified: true,
   },
   {
-    name: "Sarah M.",
-    role: "Boulder resident",
-    text: "Nick's has been my go-to shop for 12 years. They're honest, fast, and never try to upsell you on things you don't need. Rare to find that anymore.",
+    name: "Cody J.",
+    role: "Verified repair customer",
+    text: "Quality business and trustworthy folks. Nick's did $1,200 of repairs on my '05 Outback including brakes and axle, included a warranty, and when I brought it back with similar symptoms they made good on it without hesitation.",
     stars: 5,
-    verified: false,
   },
   {
-    name: "James T.",
-    role: "CU Boulder staff",
-    text: "Brought in my truck with a mystery noise. They diagnosed it in 20 minutes, gave me a clear estimate, and had it fixed same day. Couldn't be happier.",
+    name: "Sarah G.",
+    role: "2-year customer",
+    text: "I originally came here for a second opinion after catching another shop trying to sell me repairs I didn't need. They've always been efficient, helpful and honest. Won't go anywhere else.",
     stars: 5,
-    verified: false,
   },
   {
-    name: "Laura K.",
-    role: "Boulder local",
-    text: "The team here is genuinely trustworthy. They called me before doing any extra work and explained everything. My car runs better than it has in years.",
+    name: "Russell H.",
+    role: "20-year customer",
+    text: "I've been taking my family's vehicles to Nick's Auto Repair for 20 years. Over this entire period I have never been disappointed. My experience with Nick's has always been excellent.",
     stars: 5,
-    verified: false,
-  },
-  {
-    name: "Mike R.",
-    role: "Louisville, CO",
-    text: "Moved from Denver and was nervous about finding a new mechanic. Nick's made it easy — professional shop, friendly staff, and my car was ready when promised.",
-    stars: 5,
-    verified: false,
   },
 ];
 
@@ -66,7 +73,7 @@ export default function Testimonials() {
             <h2 className="text-4xl md:text-5xl font-black text-white">
               What Customers <span className="gradient-text">Say</span>
             </h2>
-            <p className="text-[#A1A1AA] mt-3">Real reviews from real Boulder-area customers</p>
+            <p className="text-[#A1A1AA] mt-3">Real Google reviews from Boulder-area customers</p>
           </div>
           <div className="flex gap-3">
             <button onClick={prev} className="w-11 h-11 rounded border border-[#252525] flex items-center justify-center text-[#A1A1AA] hover:text-white hover:border-[#DC2626]/40 transition-all cursor-pointer" aria-label="Previous">
@@ -88,10 +95,7 @@ export default function Testimonials() {
               <p className="text-[#D4D4D8] text-base leading-relaxed mb-6">&ldquo;{review.text}&rdquo;</p>
               <div className="flex items-center justify-between">
                 <div>
-                  <div className="flex items-center gap-2">
-                    <span className="font-semibold text-white text-sm">{review.name}</span>
-                    {review.verified && <span className="text-[10px] bg-[#DC2626]/20 text-[#EF4444] px-1.5 py-0.5 rounded font-medium">Verified</span>}
-                  </div>
+                  <div className="font-semibold text-white text-sm">{review.name}</div>
                   <div className="text-xs text-[#A1A1AA]">{review.role}</div>
                 </div>
                 <div className="flex gap-0.5">
